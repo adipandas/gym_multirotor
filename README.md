@@ -25,8 +25,8 @@ mujoco_py
 ## Installation
 To install, you will have to clone this repository on your personal machine. Follow the below commands:  
 ```
-$ git clone https://github.com/adipandas/multirotor_gym.git
-$ cd multirotor_gym
+$ git clone https://github.com/adipandas/gym_multirotor.git
+$ cd gym_multirotor
 $ pip install -e .
 ```
 
