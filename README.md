@@ -1,8 +1,13 @@
+[quadrotor-babbling]: media/quadrotor-babbling.gif "quadrotor-babbling.gif"
+[tiltrotor-babbling]: media/tiltrotor-babbling.gif "tiltrotor-babbling.gif"
+
 # gym_multirotor
 
 Gym to train reinforcement learning agents on UAV platforms
 
-Python package in this repository provides gym environment for various UAV robots.
+Quadrotor  |  Tiltrotor
+:-------------------------:|:-------------------------:
+![quadrotor-babbling][quadrotor-babbling]  |  ![tiltrotor-babbling][tiltrotor-babbling]
 
 ## Requirements
 This package has been tested on Ubuntu 18.04 with `python 3.6`.
