@@ -4,4 +4,3 @@ scipy
 matplotlib
 baselines
 PyYAML
-pybullet
