@@ -1,4 +1,4 @@
-# multirotor_gym
+# gym_multirotor
 
 Gym to train reinforcement learning agents on UAV platforms
 
