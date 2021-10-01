@@ -127,3 +127,11 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
+
+__pycache__/
+.idea/
+gym_multirotor.egg-info/
+MUJOCO_LOG.TXT
+*.egg-info/
+.ipynb_checkpoints
