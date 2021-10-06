@@ -57,3 +57,8 @@ If you find this work useful, please cite our work:
   organization={American Society of Mechanical Engineers}
 }
 ```
+
+## Notes:
+* Some of the environment parameters have been updated but the task of these drone environments still remains the same as what was discussed in the paper.
+* I will keep on updating these codes as I make further progress in my work.
+
