@@ -1,3 +1,11 @@
+# ********************************************************
+# Copyright (c) 2019, Autonomous Systems Lab
+# Author: Dongho Kang <eastsky.kang@gmail.com>
+# This file is a heavily modified version of https://github.com/ethz-asl/reinmav-gym/blob/master/gym_reinmav/envs/mujoco/mujoco_quad.py
+# The corresponding copyright notice is provided above.
+# ********************************************************
+
+
 import os
 import math
 from abc import ABC
