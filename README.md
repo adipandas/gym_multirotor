@@ -1,13 +1,10 @@
-[quadrotor-babbling]: media/quadrotor-babbling.gif "quadrotor-babbling.gif"
-[tiltrotor-babbling]: media/tiltrotor-babbling.gif "tiltrotor-babbling.gif"
-
 # gym_multirotor
 
 Gym to train reinforcement learning agents on UAV platforms
 
 Quadrotor  |  Tiltrotor
 :-------------------------:|:-------------------------:
-![quadrotor-babbling][quadrotor-babbling]  |  ![tiltrotor-babbling][tiltrotor-babbling]
+<img src="media/quadrotor-babbling.gif" width="300" height="300"/> | <img src="media/tiltrotor-babbling.gif" width="300" height="300"/>
 
 ## Requirements
 This package has been tested on Ubuntu 18.04 with `python 3.6`.
