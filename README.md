@@ -42,7 +42,8 @@ Environment-ID | Description
 
 ## Citation
 
-If you find this work useful, please cite our work:
+If you find this work useful, please cite our works:
+
 ```
 @inproceedings{deshpande2020developmental,
   title={Developmental reinforcement learning of control policy of a quadcopter UAV with thrust vectoring rotors},
@@ -52,6 +53,22 @@ If you find this work useful, please cite our work:
   pages={V002T36A011},
   year={2020},
   organization={American Society of Mechanical Engineers}
+}
+```
+
+```
+@article{deshpande202190Robust,
+title = {Robust Deep Reinforcement Learning for Quadcopter Control},
+journal = {IFAC-PapersOnLine},
+volume = {54},
+number = {20},
+pages = {90-95},
+year = {2021},
+note = {Modeling, Estimation and Control Conference MECC 2021},
+issn = {2405-8963},
+doi = {https://doi.org/10.1016/j.ifacol.2021.11.158},
+url = {https://www.sciencedirect.com/science/article/pii/S2405896321022023},
+author = {Aditya M. Deshpande and Ali A. Minai and Manish Kumar}
 }
 ```
 
