@@ -123,7 +123,7 @@ class UAVBaseEnv(mujoco_env.MujocoEnv, utils.EzPickle, ABC):
 
         self.disorient = disorient
         """bool: If True, random initialization and random orientation of the system at start of each episode. Default is ``True``.
-        
+
         Notes:
             * If `self.disorient` is true and `self.sample_SO3` is true, randomly initialize orientation of robot for every episode and sample this orientation from uniform distribution of SO3 matrices.
             * If `self.disorient` is true, then randomly initialize the robot orientation at episode start.

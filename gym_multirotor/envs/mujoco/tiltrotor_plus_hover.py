@@ -59,7 +59,7 @@ class TiltrotorPlus8DofHoverEnv(QuadrotorPlusHoverEnv):
             numpy.ndarray: Action vector of shape (8,) to send as input to mujoco.
         """
 
-        action_range = self.action_space.high - self.action_space.low
+        action_range = 2.0
         avg_actuation = np.array([self.mass * 9.81 * 0.25,
                                   self.mass * 9.81 * 0.25,
                                   self.mass * 9.81 * 0.25,

@@ -7,17 +7,16 @@ Quadrotor  |  Tiltrotor
 <img src="media/quadrotor-babbling.gif" width="300" height="300"/> | <img src="media/tiltrotor-babbling.gif" width="300" height="300"/>
 
 ## Requirements
-This package has been tested on Ubuntu 18.04 with `python 3.6`.
-```
-python=3.6
-numpy
-scipy
-gym
-mujoco_py
-```
-
+* This package has been tested on Ubuntu 18.04/20.04 with `python 3.8`.
+* To install MuJoCo refer [this](https://github.com/openai/mujoco-py#install-mujoco).
+* Few additional packages:
+  ```
+  pip install numpy scipy
+  pip install mujoco_py==2.1.2.14
+  pip install gym==0.12.5
+  ```
+* For troubleshooting refer [this](https://github.com/openai/mujoco-py#troubleshooting)
 * To install `gym` refer [this link](https://github.com/openai/gym).
-* To install `MuJoCo` refer [this link](https://github.com/openai/mujoco-py#obtaining-the-binaries-and-license-key).
 
 ## Installation
 To install, you will have to clone this repository on your personal machine. Follow the below commands:  
@@ -35,6 +34,11 @@ Environment-ID | Description
 `QuadrotorPlusHoverEnv-v0` | Quadrotor with `+` configuration with task to hover.
 `TiltrotorPlus8DofHoverEnv-v0` | Tiltrotor with `+` configuration.
 `QuadrotorXHoverEnv-v0` | Quadrotor with `x` configuration with a task to hover.
+
+
+## How to use?
+
+Please refer [examples](./examples) folder
 
 ### References
 [REFERENCES.md](REFERENCES.md)

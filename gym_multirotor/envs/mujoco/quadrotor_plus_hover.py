@@ -15,9 +15,7 @@ class QuadrotorPlusHoverEnv(UAVBaseEnv):
     """
 
     def __init__(self, xml_name="quadrotor_plus.xml", frame_skip=5, env_bounding_box=1.2, randomize_reset=False):
-        super().__init__(xml_name=xml_name,
-                         frame_skip=frame_skip,
-                         env_bounding_box=env_bounding_box, randomize_reset=randomize_reset)
+        super().__init__(xml_name=xml_name, frame_skip=frame_skip, env_bounding_box=env_bounding_box, randomize_reset=randomize_reset)
 
     @property
     def hover_force(self):
@@ -39,7 +37,7 @@ class QuadrotorPlusHoverEnv(UAVBaseEnv):
         Returns:
             numpy.ndarray: Vector of motor inputs of shape (4,).
         """
-        motor_range = self.action_space.high.copy() - self.action_space.low.copy()
+        motor_range = 2.0
         motor_inputs = self.hover_force + action * motor_range / (self.policy_range[1] - self.policy_range[0])
         return motor_inputs
 
