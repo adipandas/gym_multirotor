@@ -8,12 +8,13 @@ Quadrotor  |  Tiltrotor
 
 ## Requirements
 * This package has been tested on Ubuntu 18.04/20.04 with `python 3.8`.
-* To install MuJoCo refer [this](https://github.com/openai/mujoco-py#install-mujoco).
+* To install MuJoCo binaries refer [this](https://github.com/openai/mujoco-py#install-mujoco).
 * Few additional packages:
   ```
   pip install numpy scipy
   pip install mujoco_py==2.1.2.14
-  pip install gym==0.12.5
+  pip install stable-baselines3[extra]
+  pip install gym==0.21.0
   ```
 * For troubleshooting refer [this](https://github.com/openai/mujoco-py#troubleshooting)
 * To install `gym` refer [this link](https://github.com/openai/gym).

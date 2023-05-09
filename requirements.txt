@@ -1,6 +1,5 @@
 numpy
-gym
 scipy
 matplotlib
-baselines
-PyYAML
+gym==0.21.0
+mujoco_py==2.1.2.14

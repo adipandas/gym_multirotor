@@ -18,13 +18,8 @@ setup(name='gym_multirotor',
       install_requires=[
           'matplotlib',
           'scipy',
-          'imageio',
           'numpy',
-          'baselines',
-          'tensorboardX',
-          'PyYAML'
       ],
       packages=['gym_multirotor', ],
       extras_require=extras,
       )
- 

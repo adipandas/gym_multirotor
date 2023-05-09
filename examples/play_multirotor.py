@@ -53,7 +53,7 @@ def main(env):
 
 
 if __name__ == "__main__":
-    env = gym.make('QuadrotorPlusHoverEnv-v0')
-    # env = gym.make('QuadrotorXHoverEnv-v0')
+    # env = gym.make('QuadrotorPlusHoverEnv-v0')
+    env = gym.make('QuadrotorXHoverEnv-v0')
     # env = gym.make('TiltrotorPlus8DofHoverEnv-v0')
     main(env)

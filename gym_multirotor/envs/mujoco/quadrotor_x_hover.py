@@ -13,5 +13,5 @@ class QuadrotorXHoverEnv(QuadrotorPlusHoverEnv):
         frame_skip (int): Number of frames to skip after application of one action command.
     """
 
-    def __init__(self, xml_name="quadrotor_x.xml", frame_skip=5):
-        super().__init__(xml_name, frame_skip=frame_skip)
+    def __init__(self, xml_name="quadrotor_x.xml", frame_skip=5, env_bounding_box=1.2, randomize_reset=False):
+        super().__init__(xml_name, frame_skip=frame_skip, env_bounding_box=env_bounding_box, randomize_reset=randomize_reset)
