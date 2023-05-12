@@ -14,7 +14,7 @@ for ENV_NAME in ENV_NAMES:
         "MlpPolicy",
         vec_env,
         verbose=1,
-        tensorboard_log=f'log_{ENV_NAME}',
+        tensorboard_log=f'logs/log_{ENV_NAME}',
         policy_kwargs=dict(activation_fn=torch.nn.ReLU, net_arch=dict(pi=[256, 256], vf=[256, 256])),
         learning_rate=0.00005,
         clip_range=0.05,
@@ -26,3 +26,4 @@ for ENV_NAME in ENV_NAMES:
     model.save(f"./policy/PPO_{ENV_NAME}")
     del model
     vec_env.close()
+

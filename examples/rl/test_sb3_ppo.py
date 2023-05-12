@@ -17,3 +17,4 @@ while True:
     env.render()
     if dones:
         obs = env.reset()
+
