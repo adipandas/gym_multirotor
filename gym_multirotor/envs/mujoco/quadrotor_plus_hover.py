@@ -146,7 +146,7 @@ class QuadrotorPlusHoverEnv(UAVBaseEnv):
         extra_penalty = - self.bound_violation_penalty(ob[:3])    # PENALTY for bound violation
 
         reward_velocity_towards_goal = 0.0
-        if self.norm(ob[0:3]) > self.error_tolerance_norm:
+        if self.norm(ob[0:3]) > self.error_tolerance_norm:  # reward agent to move towards goal if system is away from goal
             reward_velocity_towards_goal += self.reward_velocity_towards_goal(error_xyz=ob[:3], velocity=ob[12:15])
 
         rewards = (reward_position, reward_orientation, reward_linear_velocity, reward_angular_velocity, reward_action, alive_bonus, extra_bonus, extra_penalty, reward_velocity_towards_goal)

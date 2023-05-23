@@ -48,8 +48,7 @@ from gym_multirotor import utils as multirotor_utils
 
 
 class UAVBaseEnv(mujoco_env.MujocoEnv, utils.EzPickle, ABC):
-    """
-    Base environment for UAV. Abstract class. Need to implement ``reset_model`` in every subclass along with few other methods..
+    """Abstract base class for UAV environment.
 
     Args:
         xml_name (str): Name of the robot description xml file.
@@ -74,6 +73,9 @@ class UAVBaseEnv(mujoco_env.MujocoEnv, utils.EzPickle, ABC):
         action_reward_constant (float): Action reward coefficient. Default is ``0.0025``.
         reward_for_staying_alive (float): Reward for staying alive in the environment. Default is ``5.0``.
         reward_scaling_coefficient (float): Reward multiplication factor which can be used to scale the value of reward to be greater or smaller. Default is ``1.0``.
+
+    Notes:
+    -  Need to implement ``reset_model`` in every subclass along with few other methods..
 
     """
 
@@ -242,8 +244,7 @@ class UAVBaseEnv(mujoco_env.MujocoEnv, utils.EzPickle, ABC):
 
     @property
     def env_bounding_box_norm(self) -> float:
-        """
-        Max. distance of the drone from the bounding box limits or maximum allowed distance
+        """Max. distance of the drone from the bounding box limits or maximum allowed distance
         of the drone from the desired position. It is the radius of the sphere within which the robot can observe the goal.
 
         Returns:
@@ -254,8 +255,7 @@ class UAVBaseEnv(mujoco_env.MujocoEnv, utils.EzPickle, ABC):
 
     @property
     def error_tolerance_norm(self) -> float:
-        """
-        Returns the radius of the sphere within which the robot can be considered accurate.
+        """Returns the radius of the sphere within which the robot can be considered accurate.
 
         Returns:
             float: error_tolerance_norm_sphere_radius
@@ -264,8 +264,7 @@ class UAVBaseEnv(mujoco_env.MujocoEnv, utils.EzPickle, ABC):
         return self.norm(np.array([self.error_tolerance, self.error_tolerance, self.error_tolerance]))
 
     def step(self, a: np.ndarray) -> Tuple[np.ndarray, float, bool, Dict]:
-        """
-        Take a step in the environment given an action
+        """Take a step in the environment given an action
 
         Args:
             a (numpy.ndarray): action from control policy
@@ -283,8 +282,7 @@ class UAVBaseEnv(mujoco_env.MujocoEnv, utils.EzPickle, ABC):
         return ob, reward, done, info
 
     def clip_action(self, action: np.ndarray, a_min=-1.0, a_max=1.0) -> np.ndarray:
-        """
-        Clip policy action vector to be within given minimum and maximum limits.
+        """Clip policy action vector to be within given minimum and maximum limits.
 
         Args:
             action (np.ndarray): Action vector
@@ -329,8 +327,7 @@ class UAVBaseEnv(mujoco_env.MujocoEnv, utils.EzPickle, ABC):
         raise NotImplementedError
 
     def _get_obs(self) -> np.ndarray:
-        """
-        Mujoco observations.
+        """Mujoco observations.
 
         Returns:
             numpy.ndarray: Vector containing concatenation of qpos and qvel from mujoco
@@ -362,8 +359,7 @@ class UAVBaseEnv(mujoco_env.MujocoEnv, utils.EzPickle, ABC):
         return qpos, qvel
 
     def print_info(self) -> None:
-        """
-        Print information about the environment in the console. This method can be used for Debugging purposes.
+        """Print information about the environment in the console. This method can be used for Debugging purposes.
         """
         print("Mass of robot :", self.mass)
         if isinstance(self.observation_space, spaces.Box):
@@ -382,8 +378,7 @@ class UAVBaseEnv(mujoco_env.MujocoEnv, utils.EzPickle, ABC):
         print("actuator_ctrllimited:", self.model.actuator_ctrllimited)
 
     def orientation_error(self, quat: np.ndarray) -> float:
-        """
-        Orientation error assuming desired orientation is (roll, pitch, yaw) = (0, 0, 0).
+        """Orientation error assuming desired orientation is (roll, pitch, yaw) = (0, 0, 0).
 
         Args:
             quat (numpy.ndarray): Orientation quaternion (q0, qx, qy, qz) in scalar first format of the robot (shaped (4,))
@@ -402,8 +397,7 @@ class UAVBaseEnv(mujoco_env.MujocoEnv, utils.EzPickle, ABC):
         return error
 
     def goal_reached(self, error_xyz: np.ndarray) -> bool:
-        """
-        This method checks if the given position error vector is close to zero or not.
+        """This method checks if the given position error vector is close to zero or not.
 
         Args:
             error_xyz (numpy.ndarray): Vector of error along xyz axes.
@@ -418,8 +412,7 @@ class UAVBaseEnv(mujoco_env.MujocoEnv, utils.EzPickle, ABC):
         return self.norm(error_xyz) < self.error_tolerance_norm
 
     def is_within_env_bounds(self, error_xyz: np.ndarray) -> bool:
-        """
-        This method checks if the robot is with the environment bounds or not.
+        """This method checks if the robot is with the environment bounds or not.
 
         Args:
             error_xyz (numpy.ndarray): Vector of position error of the robot w.r.t. the target locations, i.e., vector = (target - robot_xyz).
@@ -435,8 +428,7 @@ class UAVBaseEnv(mujoco_env.MujocoEnv, utils.EzPickle, ABC):
         return self.norm(error_xyz) < self.env_bounding_box_norm
 
     def norm(self, vector: np.ndarray) -> float:
-        """
-        Helper calculate the euclidean norm of a vector.
+        """Helper calculate the euclidean norm of a vector.
 
         Args:
             vector (numpy.ndarray): Vector of shape (n,)
@@ -465,8 +457,7 @@ class UAVBaseEnv(mujoco_env.MujocoEnv, utils.EzPickle, ABC):
         return penalty
 
     def bonus_reward_to_achieve_goal(self, error_xyz: np.ndarray) -> float:
-        """
-        Return bonus reward value if the goal is achieved by the robot.
+        """Return bonus reward value if the goal is achieved by the robot.
 
         Args:
             error_xyz (numpy.ndarray): Error vector of robot position and desired position along x-y-z axes.
@@ -482,8 +473,7 @@ class UAVBaseEnv(mujoco_env.MujocoEnv, utils.EzPickle, ABC):
         return bonus
 
     def reward_velocity_towards_goal(self, error_xyz: np.ndarray, velocity: np.ndarray) -> float:
-        """
-        Reward for velocity of the system towards goal.
+        """Reward for velocity of the system towards goal.
 
         Args:
             error_xyz (numpy.ndarray): Position error of the system along xyz-coordinates.
@@ -498,7 +488,7 @@ class UAVBaseEnv(mujoco_env.MujocoEnv, utils.EzPickle, ABC):
         unit_xyz = error_xyz/(self.norm(error_xyz) + 1e-6)
         velocity_direction = velocity/(self.norm(velocity) + 1e-6)
         reward = np.dot(unit_xyz, velocity_direction)
-        return reward
+        return np.clip(reward, -np.inf, self.max_reward_for_velocity_towards_goal)
 
     def is_done(self, ob: np.ndarray) -> bool:
         """Check if episode is over.
@@ -515,8 +505,7 @@ class UAVBaseEnv(mujoco_env.MujocoEnv, utils.EzPickle, ABC):
         return done
 
     def get_body_state(self, body_name: str) -> Tuple[np.ndarray, np.ndarray, np.ndarray, np.ndarray]:
-        """
-        Returns the state of the body with respect to world frame of reference (inertial frame).
+        """Returns the state of the body with respect to world frame of reference (inertial frame).
 
         Args:
             body_name (str): Name of the body used in the XML file.
